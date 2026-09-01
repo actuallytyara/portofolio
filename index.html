@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyara Angel Charlisa — Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6F0;
+    --cream-dim:#F1EAE0;
+    --espresso:#241A17;
+    --espresso-soft:#3A2C27;
+    --crimson:#C81E4D;
+    --amber:#E3993D;
+    --line: rgba(36,26,23,0.12);
+    --max: 1080px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Poppins', sans-serif;
+    background:var(--cream);
+    color:var(--espresso);
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{
+    max-width:var(--max);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(250,246,240,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+  }
+  .brand{
+    font-weight:700;
+    font-size:18px;
+    letter-spacing:0.02em;
+  }
+  .brand span{color:var(--crimson);}
+  .navlinks{
+    display:flex;
+    gap:36px;
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--espresso-soft);
+  }
+  .navlinks a{
+    position:relative;
+    padding-bottom:4px;
+    transition:color .2s ease;
+  }
+  .navlinks a:hover{color:var(--crimson);}
+  .navlinks a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:0;
+    width:0; height:2px;
+    background:var(--crimson);
+    transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navtoggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 88px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:56px;
+    align-items:end;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    background:var(--cream-dim);
+    border:1.5px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    margin-bottom:28px
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-photo span{
+    font-size:13px;
+    font-weight:500;
+    color:var(--espresso-soft);
+  }
+  .hero-name{
+    font-size:clamp(52px, 8vw, 96px);
+    font-weight:800;
+    line-height:0.92;
+    letter-spacing:-0.02em;
+    text-transform:uppercase;
+  }
+  .hero-name .l1{color:var(--espresso);}
+  .hero-name .l2{color:var(--crimson);}
+  .hero-role{
+    margin-top:22px;
+    font-size:15.5px;
+    font-weight:500;
+    color:var(--espresso-soft);
+    max-width:34ch;
+    border-left:3px solid var(--amber);
+    padding-left:14px;
+  }
+  .hero-side{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .hero-desc{
+    font-size:15px;
+    color:var(--espresso-soft);
+    max-width:42ch;
+  }
+  .hero-cta{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 24px;
+    border-radius:2px;
+    font-size:14px;
+    font-weight:600;
+    transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn-solid{
+    background:var(--espresso);
+    color:var(--cream);
+  }
+  .btn-solid:hover{background:var(--crimson);}
+  .btn-outline{
+    border:1.5px solid var(--espresso);
+    color:var(--espresso);
+  }
+  .btn-outline:hover{border-color:var(--crimson); color:var(--crimson);}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:88px 0;}
+  section.tight{padding:70px 0;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:44px;
+  }
+  .sec-num{
+    font-size:14px;
+    font-weight:600;
+    color:var(--amber);
+  }
+  .sec-title{
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  .sec-title span{color:var(--crimson);}
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:0.4fr 0.6fr;
+    gap:56px;
+    border-top:1px solid var(--line);
+  }
+  .about-lead{
+    font-size:20px;
+    font-weight:500;
+    line-height:1.5;
+    color:var(--espresso);
+  }
+  .about-body p{
+    font-size:15px;
+    color:var(--espresso-soft);
+    margin-bottom:16px;
+    max-width:58ch;
+  }
+  .about-facts{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 28px;
+  }
+  .fact-label{
+    font-size:12.5px;
+    color:var(--espresso-soft);
+    font-weight:500;
+  }
+  .fact-value{
+    font-size:14.5px;
+    font-weight:600;
+    margin-top:3px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .skill-card{
+    background:var(--cream);
+    padding:28px 22px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .skill-tag{
+    font-size:13px;
+    font-weight:600;
+    color:var(--crimson);
+  }
+  .skill-name{
+    font-size:16.5px;
+    font-weight:600;
+  }
+  .skill-desc{
+    font-size:13.5px;
+    color:var(--espresso-soft);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{
+    border-top:1px solid var(--line);
+  }
+  .tl-item{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:32px;
+    padding:34px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .tl-period{
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--amber);
+  }
+  .tl-role{
+    font-size:19px;
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .tl-org{
+    font-size:14px;
+    font-weight:500;
+    color:var(--espresso-soft);
+    margin-bottom:12px;
+  }
+  .tl-desc{
+    font-size:14.5px;
+    color:var(--espresso-soft);
+    max-width:62ch;
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    border:1px solid var(--line);
+    padding:36px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:20px;
+  }
+  .edu-school{
+    font-size:22px;
+    font-weight:700;
+  }
+  .edu-program{
+    font-size:14.5px;
+    color:var(--espresso-soft);
+    margin-top:6px;
+  }
+  .edu-year{
+    font-size:15px;
+    font-weight:600;
+    color:var(--crimson);
+    border:1.5px solid var(--crimson);
+    padding:8px 16px;
+    white-space:nowrap;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--espresso);
+    color:var(--cream);
+    padding:88px 0 40px;
+  }
+  .contact-top{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    border-bottom:1px solid rgba(250,246,240,0.15);
+    padding-bottom:56px;
+  }
+  .contact-title{
+    font-size:clamp(34px, 5vw, 52px);
+    font-weight:800;
+    line-height:1.08;
+    max-width:12ch;
+  }
+  .contact-title span{color:var(--amber);}
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    justify-content:center;
+  }
+  .contact-row{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    font-size:15.5px;
+    border-bottom:1px solid rgba(250,246,240,0.12);
+    padding-bottom:16px;
+  }
+  .contact-label{
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--amber);
+    width:90px;
+    flex-shrink:0;
+  }
+  .contact-row a{
+    font-weight:500;
+    transition:color .2s ease;
+  }
+  .contact-row a:hover{color:var(--amber);}
+  .foot-bottom{
+    margin-top:40px;
+    display:flex;
+    justify-content:space-between;
+    font-size:12.5px;
+    color:rgba(250,246,240,0.55);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px){
+    .hero{grid-template-columns:1fr; gap:32px;}
+    .about{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
+    .tl-item{grid-template-columns:1fr; gap:8px;}
+    .contact-top{grid-template-columns:1fr;}
+    .edu-card{grid-template-columns:1fr; align-items:flex-start;}
+    .navlinks{
+      position:fixed;
+      top:76px; left:0; right:0;
+      background:var(--cream);
+      flex-direction:column;
+      gap:0;
+      max-height:0;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      transition:max-height .3s ease;
+    }
+    .navlinks.open{max-height:320px;}
+    .navlinks a{padding:16px 32px; border-bottom:1px solid var(--line);}
+    .navlinks a::after{display:none;}
+    .navtoggle{
+      display:block;
+      background:none;
+      border:1.5px solid var(--espresso);
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+      color:var(--espresso);
+    }
+  }
+
+  @media (max-width:520px){
+    .skills-grid{grid-template-columns:1fr;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--crimson);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">Tyara<span>.</span>AC</div>
+    <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <div class="navlinks" id="navLinks">
+      <a href="#tentang">Tentang</a>
+      <a href="#keahlian">Keahlian</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <div class="hero-name">
+        <div class="l1">Tyara Angel</div>
+        <div class="l2">Charlisa</div>
+      </div>
+      <p class="hero-role">Pelajar SMK yang fokus mendalami Cloud Computing dan DevOps, dengan dasar administrasi jaringan, Linux, dan virtualisasi.</p>
+    </div>
+    <div class="hero-side">
+      <div class="hero-photo">
+        <img src="foto.jpg" alt="Tyara Angel Charlisa">
+      </div>
+      <p class="hero-desc">Terbiasa bekerja teliti dan disiplin, mampu berkolaborasi dalam tim maupun bekerja mandiri. Saat ini aktif membangun pengalaman langsung di dunia frontend development sambil terus memperdalam cloud infrastructure.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#kontak">Hubungi Saya</a>
+        <a class="btn btn-outline" href="#pengalaman">Lihat Pengalaman</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="wrap about">
+      <div>
+        <p class="sec-num">01</p>
+        <p class="about-lead">Menekuni cloud infrastructure sejak bangku SMK, dibangun lewat kebiasaan kerja yang rapi dan konsisten.</p>
+      </div>
+      <div class="about-body">
+        <p>Tyara adalah pelajar SMK dengan minat besar di bidang Cloud Computing dan DevOps. Ia memiliki pengetahuan dasar administrasi jaringan, Linux, dan virtualisasi, serta terbiasa bekerja teliti dan disiplin dalam setiap tugas yang dikerjakan.</p>
+        <p>Di luar sisi teknis, Tyara juga membawa latar belakang sebagai frontend developer dan ilustrator digital — dua pengalaman yang melatih ketelitian, manajemen waktu, dan konsistensi kerja jangka panjang, nilai yang juga penting dalam pekerjaan cloud engineering.</p>
+        <div class="about-facts">
+          <div>
+            <p class="fact-label">Fokus utama</p>
+            <p class="fact-value">Cloud Computing & DevOps</p>
+          </div>
+          <div>
+            <p class="fact-label">Domisili</p>
+            <p class="fact-value">Tanggulangin, Sidoarjo</p>
+          </div>
+          <div>
+            <p class="fact-label">Latar belakang</p>
+            <p class="fact-value">Sistem Informasi Jaringan Aplikasi</p>
+          </div>
+          <div>
+            <p class="fact-label">Status</p>
+            <p class="fact-value">Lulusan SMK Telkom Sidoarjo, 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="keahlian" class="tight">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Keahlian <span>&amp;</span> Fokus Kerja</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-tag">Infrastruktur</span>
+          <span class="skill-name">Cloud Computing</span>
+          <span class="skill-desc">Dasar konsep dan layanan cloud infrastructure.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Operasional</span>
+          <span class="skill-name">DevOps</span>
+          <span class="skill-desc">Version control dengan Git dan GitHub, workflow deployment.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Sistem</span>
+          <span class="skill-name">Linux & Virtualisasi</span>
+          <span class="skill-desc">Administrasi jaringan dan pengelolaan sistem dasar.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Pengembangan</span>
+          <span class="skill-name">Frontend Development</span>
+          <span class="skill-desc">PHP, HTML, dan CSS untuk website yang responsif.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Kolaborasi</span>
+          <span class="skill-name">Kerja Tim & Mandiri</span>
+          <span class="skill-desc">Terbiasa berkolaborasi lintas peran maupun bekerja sendiri.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Kreatif</span>
+          <span class="skill-name">Ilustrasi Digital</span>
+          <span class="skill-desc">Mengembangkan gaya visual yang konsisten di berbagai platform.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Sikap Kerja</span>
+          <span class="skill-name">Ketelitian & Disiplin</span>
+          <span class="skill-desc">Kebiasaan kerja rapi yang terbentuk dari konsistensi jangka panjang.</span>
+        </div>
+        <div class="skill-card">
+          <span class="skill-tag">Manajemen</span>
+          <span class="skill-name">Manajemen Waktu</span>
+          <span class="skill-desc">Terlatih menyeimbangkan proyek teknis dan kreatif secara bersamaan.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pengalaman">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Pengalaman</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-period">2024 — Sekarang</span>
+          <div>
+            <p class="tl-role">Frontend Developer</p>
+            <p class="tl-org">Skomda</p>
+            <p class="tl-desc">Bertanggung jawab mengembangkan website responsif menggunakan PHP, HTML, dan CSS. Berkolaborasi dengan tim untuk implementasi UI/UX yang user-friendly, mengoptimalkan performa website, memastikan kompatibilitas cross-browser, serta mengelola version control menggunakan Git dan GitHub — praktik dasar yang sama dipakai dalam workflow DevOps dan deployment aplikasi cloud.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <span class="tl-period">2017 — Sekarang</span>
+          <div>
+            <p class="tl-role">Ilustrator & Artist</p>
+            <p class="tl-org">Media Sosial</p>
+            <p class="tl-desc">Aktif membagikan karya ilustrasi digital di berbagai platform media sosial dan mengembangkan gaya visual yang konsisten. Pengalaman ini melatih ketelitian, manajemen waktu, dan kemampuan bekerja mandiri secara konsisten dalam jangka panjang.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendidikan" class="tight">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Pendidikan</h2>
+      </div>
+      <div class="edu-card">
+        <div>
+          <p class="edu-school">SMK Telkom Sidoarjo</p>
+          <p class="edu-program">Sistem Informasi Jaringan Aplikasi</p>
+        </div>
+        <span class="edu-year">2024</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="kontak">
+  <div class="wrap contact-top">
+    <p class="contact-title">Mari <span>terhubung</span> dan berkolaborasi.</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <span class="contact-label">Telepon</span>
+        <a href="tel:+6281330307997">+62 813 3030 7997</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJZbjLmWzbSqJVWjkbhSlhqgWMgLQpGMlWpKfkvmLxxlJndLjLWsPNBrpZTvDPMBTwVDDVq">art.tyaraa@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Lokasi</span>
+        <span>Tanggulangin, Sidoarjo, Jawa Timur</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>Tyara Angel Charlisa</span>
+    <span>Portofolio 2026</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
